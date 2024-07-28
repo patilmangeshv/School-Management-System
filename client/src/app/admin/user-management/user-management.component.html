@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="col-md-121">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <!-- <th style="width: 30%;">Username</th>
+                        <th style="width: 40%;">Active Roles</th>
+                        <th style="width: 30%;"></th> -->
+                        <th class="col-3">Username</th>
+                        <th class="col-4">Active Roles</th>
+                        <th class="col-4">Password</th>
+                        <th class="col-1">Delete User</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{user.username}}</td>
+                        <!-- <td>{{user.roles}}</td> -->
+                        <td>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button (click)="openRolesModal(user)" class="btn btn-info">Edit Roles</button>
+                                </div>
+                                <label class="form-control">{{user.roles}}</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-info" type="button" id="button-addon1"
+                                        (click)="resetUserPassword(user)" [disabled]="user.resetPassword">Reset</button>
+                                </div>
+                                <ng-container *ngIf="user.resetPassword">
+                                    <input #txtresetPassword type="text" [value]="user.resetPassword" readonly
+                                        class="form-control" placeholder="" aria-label="thisispassword"
+                                        aria-describedby="button-addon1">
+                                    <button class="btn btn-info" (click)="copyPassword(txtresetPassword)"><i
+                                            class="fa fa-copy"></i></button>
+                                </ng-container>
+                            </div>
+                        </td>
+
+                        <td><button (click)="deleteUser(user)" class="btn btn-info"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "eventName": "Main",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 1,
+                "url": "/assets/images/schphotos/11.jpeg",
+                "isMain": true,
+                "publicId": "kbl/fw0hahikopqpd4ubnegu",
+                "title": "School classroom",
+                "description": "The enterance to your child's bright future",
+                "uploadDateTime": "2023-02-07T14:55:55.868127",
+                "eventId": 1
+            },
+            {
+                "id": 2,
+                "url": "/assets/images/schphotos/12.jpeg",
+                "isMain": false,
+                "publicId": "kbl/w0pod8kvjvb1nmyc3csh",
+                "title": "School campus",
+                "description": "The enterance to your child's bright future",
+                "uploadDateTime": "2023-02-07T14:56:03.749362",
+                "eventId": 1
+            },
+            {
+                "id": 3,
+                "url": "/assets/images/schphotos/13.jpeg",
+                "isMain": false,
+                "publicId": "kbl/w0pod8kvjvb1nmyc3csh",
+                "title": "School playground",
+                "description": "The enterance to your child's bright future",
+                "uploadDateTime": "2023-02-07T14:56:03.749362",
+                "eventId": 1
+            }
+        ]
+    }
+]

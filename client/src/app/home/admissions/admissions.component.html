@@ -1,0 +1,177 @@
+<div class="row justify-content-center">
+    <ng-container *ngIf="showSection=='page1'">
+        <div class="row mb-5">
+            <div class="col-lg-4 mb-lg-0 mb-4">
+                <img src="../../assets/images/laptop.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-lg-8 ml-auto align-self-center">
+                <h2 class="section-title-underline mb-5">
+                    <span>Requirements</span>
+                </h2>
+                <p>Online Form Filling will be conducted from 1st May, 2023 to 31st May 2023.</p>
+                <p>Online Applications will be accepted for Nursery to 10th std. for Academic Year 2023 - 2024.</p>
+                <p>Only children born between 1st October, 2018 to 31st December, 2019 can seek Admissions to Junior
+                    K.G.</p>
+
+                <!-- 
+            <ol class="ul-check primary list-unstyled">
+                <li>Accomplished Application Form</li>
+                <li>High School Report Card </li>
+                <li>High School Transcript</li>
+                <li>Certificate of Good Moral Characte</li>
+                <li>2×2 picture</li>
+                <li>1×1 picture</li>
+            </ol> -->
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <h5><u><b>Kindly keep the following ready while filling the Online Application Form</b></u></h5>
+
+                <ol>
+                    <li>A separate Email Address in <b style="color: red;">GMAIL only</b> to receive a copy of the Form
+                        and also for all future correspondence from the School. A Email address is required in GMAIL
+                        account as the forms will be filled through Google Forms.</li>
+                    <li>Scanned Passport Size Photograph of the Child seeking Admission (in JPG format only with RED /
+                        Blue or White Background)</li>
+                    <li>Scanned Postcard Size Family Photograph (Father, Mother and Child seeking admissions). (in JPG
+                        format only with RED / Blue or White Background)</li>
+                    <li>Scanned image of Birth Certificate of the Child seeking admission (Birth Certificate should be
+                        in English)</li>
+                    <li>Scanned image of Aadhar Card of the Child seeking admission.</li>
+                    <li>Birth Certificate of the Child</li>
+                    <li>Caste Certificate of the Parents and the Child to fill in the Caste Details.</li>
+                    <li>Aadhaar Card of both Parents and Child.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <p>Link to fill the Form is activated on 1st May, 2023 on this Site. Kindly
+                    do not rush to fill the forms as the School is giving you enough time to fill the Form.</p>
+                <p>For Assistance during the Form Filling Dates, A Help Line No. will be activated from 1st May,
+                    2023.</p>
+                <p>A copy of the filled form will be emailed to you on your registered email address.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="text-center">
+                <button (click)="showSection='page2'" class="btn btn-danger">Click here for Instructions</button>
+            </div>
+        </div>
+    </ng-container>
+
+
+    <ng-container *ngIf="showSection=='page2'">
+        <div class="row mb-5">
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <h2 class="section-title-underline mb-5">
+                    <span>Instructions</span>
+                </h2>
+                <h5><b style="color: blue;">Kindly read the Instructions carefully before filling the Application
+                        Form:</b></h5>
+
+                <ol>
+                    <li>The Form can be filled through a Tablet, Desktop PC or a Laptop. Kindly ensure these
+                        devices are logged in to a GMAIL Account, as the form will be filled through Google Form.</li>
+
+                    <li><b style="color: red;">Filling of more than one form would lead to rejection of all your filled
+                            Forms.</b></li>
+
+                    <li>Read carefully all questions asked in the Form and then enter the details accordingly.</li>
+
+                    <li>Kindly fill all details correctly. If its found later that the details filled in the Application
+                        Form are wrong or should there be any discrepancy, the Form would be rejected.</li>
+
+                    <li><b>The Form has four sections:</b>
+                        <ul>
+                            <li>Child's Information</li>
+
+                            <li>Father's Information</li>
+
+                            <li>Mother's Information</li>
+
+                            <!-- <li>Siblings Information</li> -->
+                        </ul>
+
+                        <br>
+
+                        <p>After filling all the three sections, Click on SUBMIT and wait for a Confirmation Message.
+                        </p>
+
+                        <p>An Email will be sent to you from <b style="color: red;">Shivprakash Yadav</b> with a copy of
+                            the
+                            Form. In case if you do not receive the mail in your <b style="color: red;">INBOX</b>,
+                            kindly check the <b style="color: red;">SPAM</b>. <b style="color: red;">In case if the mail
+                                is received in the SPAM, move it to the INBOX and then download the Application
+                                Form.</b> It would take 15-30 minutes to receive the mail. Kindly take a Printout once
+                            you have received the Application Form.</p>
+
+                    <li>Once the Form is filled, no changes will be accepted.</li>
+
+                    <li>All information related to your child's admission will be intimated to you through Email only.
+                    </li>
+                </ol>
+
+                <br>
+
+                <h5><b style="color: blue;">Kindly note down the following:</b></h5>
+                <ol>
+                    <li>All Emails will be sent through <b style="color: red;">Shivprakash Yadav
+                            (kblschool456@gmail.com)</b> only.</li>
+
+                    <!-- <li>All WhatsApp messages will be sent through <b style="color: red;">80879 25771</b>. (kindly save
+                        this Number as Shivprakash Yadav on your mobile phones).</li> -->
+
+                    <li>Helpline No. <b style="color: red;">80879 25771</b>. The Helpline No. will only be available on
+                        Application Form filling dates for any technical assistance in filling the Online Application
+                        Form only. Kindly do not contact this number for any other Admission related queries.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="text-center">
+                <button (click)="showSection='page3'" class="btn btn-danger">Click here to fill the Online Application
+                    Form</button>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="showSection=='page3'">
+        <div class="row mb-5">
+            <div class="col-lg-12 mb-lg-0 mb-4">
+                <h2 class="section-title-underline mb-5">
+                    <span>Undertaking</span>
+                </h2>
+                <p>I wish to apply for admission for the Academic year 2023 - 2024 for my
+                    below mentioned child. I hereby agree to supply the information requested in the attached form. I
+                    agree that, if it is Later discovered that any information has been suppressed or found to be
+                    incorrect, this application may be rejected and could lead to dismissal from the school. I fully
+                    appreciate the fact that the acceptance of this application is left entirely to the discretion of
+                    the school authorities, and does not in any way guarantee admission. I hereby state that the
+                    signing of this application form implies unconditional acceptance of all the school's admission
+                    procedures and
+                    process, rules, regulation and fees in force and as may be changed from time to time. I am conscious
+                    of and acknowledge the Constitutional Right of the management to administer this minority
+                    educational institution according to their choice, and accept their decision on admission,
+                    favourable or otherwise, as final and binding. I further accept that trying to bring influence in
+                    any form or from any quarter shall summarily disqualify candidature. I have taken note of the
+                    long-standing stated policy of the academy banning donations linked with admissions. To prevent
+                    unscrupulous individuals and intermediaries taking advantage of gullible parents, I undertake to
+                    bring any such information and details to the notice of.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="text-center">
+                <a class="btn btn-danger" href="https://forms.gle/eH4evj4d8GxKH6PL6" target="_blank">Click here to fill
+                    the Online
+                    Application Form</a>
+            </div>
+        </div>
+    </ng-container>
+</div>

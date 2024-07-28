@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="text-center text-primary">School amenities</h2>
+
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="row row-cols-1 row-cols-md-1 g-1">
+                    <ng-container *ngFor="let event of schoolAmenitiesEventData">
+                        <ng-container *ngFor="let photoEvent of event.photos">
+                            <div class="col mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><strong>{{photoEvent.title}}</strong></h5>
+                                        <img [src]="photoEvent.url" [alt]="photoEvent.title"
+                                            class="img-fluid h-100 w-100 mr-3 mt-2">
+                                        <div class="card-text mt-2" [innerHTML]="photoEvent.description"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,539 @@
+<ngx-spinner type="line-scale-party">Loading...</ngx-spinner>
+
+<div class="site-wrap">
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <div class="py-2 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-9 d-none d-lg-block">
+                    <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Any
+                        questions?</a>
+                    <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> +91 80879 25771</a>
+                    <a href="mailto:kblschool2004@gmail.com" class="small mr-3"><span
+                            class="icon-envelope-o mr-2"></span>
+                        kblschool2004@gmail.com</a>
+                </div>
+
+                <div class="col-lg-3 text-right">
+                    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+                        <a routerLink="login" class="small mr-3 btn btn-primary px-4 py-2"><span
+                                class="icon-unlock-alt"></span> Log In</a>
+                        <!-- <a routerLink="register" class="small btn btn-primary px-4 py-2 rounded-0"><span
+                                class="icon-users"></span>
+                            Register</a> -->
+                    </ng-container>
+                    <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+                        <div class="dropdown" dropdown>
+                            <img class="profile-img small mr-2" src="{{user.photoUrl || './assets/user.png'}}"
+                                alt="User photo">
+                            <a class="dropdown-toggle text-primary ms-2" dropdownToggle>Welcome {{user.firstName + ' ' +
+                                user.lastName}}</a>
+                            <div class="dropdown-menu mt-3" *dropdownMenu>
+                                <a class="dropdown-item text-primary" routerLink="/">Edit profile</a>
+                                <a class="dropdown-item text-primary" routerLink="change-password">Change password</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-primary" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+        <marquee class="w-100" style="color: red;" direction="left">
+            {{marqueeAddmissionText}}
+        </marquee>
+    </ng-container>
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-1 site-logo align-items-end">
+                    <a href="/" class="d-block">
+                        <img src="./assets/images/logo.png" alt="Image" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-9">
+                    <h2 href="/" class="text-danger text-uppercase"
+                        style="font-family: Unbounded; font-style: normal; font-weight: 500;">
+                        Kingdom of Bright Learning English High School</h2>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="mr-auto">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li>
+                                <a href="/" class="nav-link text-left">Home</a>
+                            </li>
+                            <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+                                <li class="has-children">
+                                    <a class="nav-link text-left">About Us</a>
+                                    <ul class="dropdown">
+                                        <li><a routerLink="teachers" routerLinkActive="active">Our Teachers</a></li>
+                                        <li><a routerLink="at-a-glance" routerLinkActive="active">Our School</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a routerLink="admissions" routerLinkActive="active"
+                                        class="nav-link text-left">Admissions</a>
+                                </li>
+                                <li>
+                                    <a routerLink="contact" routerLinkActive="active"
+                                        class="nav-link text-left">Contact</a>
+                                </li>
+                            </ng-container>
+                            <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+                                <li *ngIf="user.roles.includes('Admin')">
+                                    <a routerLink="user-management" routerLinkActive="active"
+                                        class="nav-link text-left">User maintenance</a>
+                                </li>
+                                <li>
+                                    <a routerLink="photo-management" routerLinkActive="active"
+                                        class="nav-link text-left">Photo management</a>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="ml-auto">
+                    <div class="social-wrap">
+                        <a href="https://www.facebook.com/kblschool" target="_blank" class="mr-1"><span
+                                class="icon-facebook"></span></a>
+                        <a href="https://www.twitter.com/kblschool" target="_blank" class="mr-1"><span
+                                class="icon-twitter"></span></a>
+                        <a href="https://www.instagram.com/kblschool" target="_blank" class="mr-1"><span
+                                class="icon-instagram"></span></a>
+                        <a href="https://www.youtube.com/@kblschool" target="_blank" class="mr-1"><span
+                                class="icon-youtube"></span></a>
+
+                        <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+                                class="icon-menu h3"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- website home page  -->
+    <ng-container *ngIf="currentRoute=='' && (accountService.currentUser$ | async) === null">
+        <div class="row">
+            <div class="col-12 hero-slide owl-carousel site-blocks-cover">
+                <carousel [isAnimated]="true">
+                    <slide *ngFor="let photoEvent of (eventService.event$ | async)?.photos">
+                        <img [src]="photoEvent.url" [alt]="photoEvent.title">
+                        <div class="carousel-caption">
+                            <h3>{{photoEvent.title}}</h3>
+                            <p>{{photoEvent.description}}</p>
+                        </div>
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+
+        <a href="" id="aboutUs" name="aboutUs"></a>
+        <div class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="./assets/images/school-building-image.jpg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-lg-8 mt-2">
+                        <h2 class="section-title-underline">
+                            <span>At a glance</span>
+                        </h2>
+                        <p class="lead">We at Kingdom of Bright Learning English High School</p>
+                        <p> believe that education is the development of mind, body and soul. Equal emphasis is given to
+                            academics as well as sports and cultural activities. We believe that each child is special
+                            and unique with different needs to grow into a successful adult
+                        </p>
+                        <p><a routerLink="at-a-glance">Read more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-bg style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="section-title-underline style-2">
+                            <span>History and Ideology</span>
+                        </h2>
+                        <p class="lead">Kingdom of Bright Learning English High School</p>
+                        <p> is a dream come true project of our Founder Trustee Mr. ABC XYZ. It was his vision that
+                            modern education must remain true to the spirit of Indian ethos and culture. He insisted on
+                            value-based education, believing firmly that a community uncaring for its traditions is
+                            decadent and insubstantial. The need to establish a quality educational institution for the
+                            benefit of the people of Badlapur was his vision, which became reality in the year 2004.
+                        </p>
+                        <!-- <p><a href="#">Read more</a></p> -->
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="./assets/images/history.jpg" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col">
+                                <img src="./assets/images/person_3.jpg" alt="Image" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <p class="lead">From the President's desk</p>
+                                <p>A good education gives children wings to fly and fulfill their dreams, ensuring a
+                                    brighter future. It is a blessing to have the opportunity to give back what we
+                                    learnt from our mentors and teachers. We believe that the early formative years are
+                                    critical for each child to grow up as a bright, mature and a responsible
+                                    individual...
+                                </p>
+                                <p class="text-right font-italic blockquote-footer">Shri. Banshraj B. Kanaujiya</p>
+                                <!-- <p><a href="#">Read more</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col">
+                                <img src="./assets/images/person_1.jpg" alt="Image" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <p class="lead">From the Secretory's desk</p>
+                                <p>Hello and greetings from KBL English School. Our school is known for its academic
+                                    excellence and value education. Our students undergo a collaborative and
+                                    futuristic learning experience. We want students to dream beyond what they think
+                                    is possible and achieve it...
+                                </p>
+                                <p class="text-right font-italic blockquote-footer">Shri. Laldhari M. Yadav</p>
+                                <!-- <p><a href="#">Read more</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="" id="aboutTeachers" name="aboutTeachers"></a>
+        <div class="section-bg style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="./assets/images/person_4.jpg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-lg-8 mt-2">
+                        <h2 class="section-title-underline style-2">
+                            <span>Teachers</span>
+                        </h2>
+                        <p class="lead">Teachers at Kingdom of Bright Learning English High School</p>
+                        <p> are most influential in their role as teachers. They inspire and encourage students to
+                            strive for greatness, live to their fullest potential and see the best in themselves. They
+                            strive for excellence in all that they do. Students look to them for advice and guidance,
+                            and admire and aspire to be like them too. Teachers develop customised learning activities
+                            in our school. They prepare relevant teaching-learning material after designing the learning
+                            activities. They create a truly joyful learning environment.
+                        </p>
+                        <p><a routerLink="teachers">Read more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5 justify-content-center text-center">
+                    <div class="col-lg-4 mb-5">
+                        <h2 class="section-title-underline mb-5">
+                            <span>Our Courses</span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-1 border">
+                            <div class="icon-wrapper bg-primary">
+                                <span class="flaticon-mortarboard text-white"></span>
+                            </div>
+                            <div class="feature-1-content">
+                                <h2>Preschool</h2>
+                                <p>Skills taught to a child at early stages form the foundation of other skills that
+                                    will be taught to the child throughout life.</p>
+                                <!-- <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-1 border">
+                            <div class="icon-wrapper bg-primary">
+                                <span class="flaticon-school-material text-white"></span>
+                            </div>
+                            <div class="feature-1-content">
+                                <h2>Elementary</h2>
+                                <p>The school curriculum creates a school culture which helps in creating students
+                                    who
+                                    are productive members of the society.</p>
+                                <!-- <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <div class="feature-1 border">
+                            <div class="icon-wrapper bg-primary">
+                                <span class="flaticon-library text-white"></span>
+                            </div>
+                            <div class="feature-1-content">
+                                <h2>Middle school</h2>
+                                <p>This is the development phase, packed with learning and rapid cognitive growth.
+                                </p>
+                                <!-- <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-4">
+                        <h2 class="section-title-underline">
+                            <span>School Amenities</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <ng-container *ngFor="let event of schoolAmenitiesEventData">
+                        <ng-container *ngFor="let photoEvent of event.photos">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><strong>{{photoEvent.title}}</strong></h5>
+                                        <img [src]="photoEvent.url" [alt]="photoEvent.title"
+                                            class="img-fluid mr-3 mt-2">
+                                        <!-- <div class="card-text mt-2 text-truncate" [innerHTML]="photoEvent.description"></div> -->
+                                        <div class="card-text mt-2" [innerHTML]="photoEvent.description"></div>
+                                        <br>
+                                        <p><a routerLink="school-amenities">Read more</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <!-- // 05 - Block -->
+        <!-- <div class="site-section">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-4">
+                        <h2 class="section-title-underline">
+                            <span>Testimonials</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="owl-slide owl-carousel">
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="./assets/images/person_1.jpg" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Allison Holmes</h3>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia.
+                                Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis,
+                                provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="./assets/images/person_2.jpg" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Allison Holmes</h3>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus
+                                mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident
+                                numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="./assets/images/person_4.jpg" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Allison Holmes</h3>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia.
+                                Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis,
+                                provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="./assets/images/person_3.jpg" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Allison Holmes</h3>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus
+                                mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident
+                                numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="./assets/images/person_2.jpg" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Allison Holmes</h3>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia.
+                                Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis,
+                                provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
+                        </div>
+                    </div>
+
+                    <div class="ftco-testimonial-1">
+                        <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                            <img src="./assets/images/person_4.jpg" alt="Image" class="img-fluid mr-3">
+                            <div>
+                                <h3>Allison Holmes</h3>
+                                <span>Designer</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus
+                                mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident
+                                numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </ng-container>
+
+    <!-- user home page  -->
+    <ng-container *ngIf="currentRoute!='' || (accountService.currentUser$ | async) as user">
+        <div class="site-section ftco-subscribe-1 site-blocks-cover pb-4"
+            style="background-image: url('./assets/images/bg_1.jpg')">
+            <div class="container mt-4">
+                <div class="row align-items-end justify-content-center text-center">
+                    <div class="col-lg-7">
+                        <h2 class="mb-0">{{routeName}}</h2>
+                        <p>{{routeDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-breadcrumns border-bottom">
+            <div class="container">
+                <a href="/">Home</a>
+                <span class="mx-3 icon-keyboard_arrow_right"></span>
+                <span class="current">{{routeName}}</span>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container">
+                <ng-container>
+                    <router-outlet></router-outlet>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="footer">
+        <div class="container">
+            <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3 class="footer-heading"><span>Location</span></h3>
+                        <p>Kingdom of Bright Learning English High School <br>
+                            Samarth Nagar, Rameshwadi, Kulgaon, <br>
+                            Badlapur (W) – 421 503 Maharashtra. <br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h3 class="footer-heading"><span>Our Campus</span></h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#">KBL</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Our Leadership</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="col-lg-4">
+                        <h3 class="footer-heading"><span>Contact</span></h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Support Community</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Share Your Story</a></li>
+                            <li><a href="#">Our Supporters</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+            </ng-container>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>
+                            Copyright &copy;{{copyrightYear}} All rights reserved | This website is developed by
+                            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            and maintained by
+                            <a href="mailto:rkinfotech12345@gmail.com" target="_blank">R K Infotech.</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- .site-wrap -->
+
+<!-- loader -->
+<!-- <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div> -->

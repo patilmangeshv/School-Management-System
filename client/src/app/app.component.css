@@ -1,0 +1,27 @@
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+/* carousel slide img {
+    height: 800px !important;
+    min-height: 400px !important;
+} */
+
+carousel img {
+    opacity: 80%;
+}
+
+.dropdown-toggle,
+.dropdown-item {
+    cursor: pointer;
+}
+
+.profile-img {
+    max-height: 40px;
+    border: 2px solid white;
+    display: inline;
+}

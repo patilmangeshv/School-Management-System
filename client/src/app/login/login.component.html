@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+            <h2 class="text-center text-primary">Login</h2>
+
+            <app-text-input [formControl]="$any(loginForm.controls['username'])" [label]="'Username'"></app-text-input>
+            <app-text-input [formControl]="$any(loginForm.controls['password'])" [label]="'Password'"
+                [type]="'password'"></app-text-input>
+
+
+            <div class="row" *ngIf="validationErrors">
+                <ul class="text-danger">
+                    <li *ngFor="let error of validationErrors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center">
+                <button [disabled]="!loginForm.valid" class="btn btn-success me-2" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

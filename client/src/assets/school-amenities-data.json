@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1,
+        "eventName": "ScaniD",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 1,
+                "url": "/assets/images/schamn/school id.jpeg",
+                "isMain": true,
+                "publicId": "",
+                "title": "SCANiD",
+                "description": "<p>An e-I Card system is installed in KBL ENGLISH HIGH SCHOOL. This system takes care of the attendance system of calling roll number of every student, which is highly time consuming every day as well as to prepare reports at the end of the year. ScaniD also helps in recording the in and out time of a particular student. It also creates a parent information system e.g. everyday system sends a SMS to all the parents of Primary and Secondary section students, whose children are absent for the day. Also special SMS’s can be sent to parents in case of emergency holiday.</p>",
+                "uploadDateTime": "",
+                "eventId": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "eventName": "Digital Classroom (TeachNext)",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 2,
+                "url": "/assets/images/schamn/Classroom-activities.jpg",
+                "isMain": true,
+                "publicId": "",
+                "title": "Digital Classroom (TeachNext)",
+                "description": "<p>KBL ENGLISH HIGH SCHOOL was the first to implement Digital Classroom i.e. E-learning concept in Badlapur.<br><br>It consists of a dependable hardware along with most comprehensive and engaging content, custom-made for Indian students in each classroom. The content is based on a firm belief that learning is not a passive process and that better learning takes place when learners are actively involved in the process. The content is updated according to changes in syllabus and student feedback is also duly taken into consideration.</p>",
+                "uploadDateTime": "",
+                "eventId": 2
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "eventName": "Computer Laboratory",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 3,
+                "url": "/assets/images/schamn/sch2.jpeg",
+                "isMain": true,
+                "publicId": "",
+                "title": "Computer Laboratory",
+                "description": "<p>KBL ENGLISH HIGH SCHOOL has two-computer laboratories to accommodate the entire class at a time. Computers in computer lab are typically equipped with high-speed Internet access, while scanners and printers augment the lab setup.<br><br>Computers are typically arranged in rows, so that each student has a similar view of one end of the room to facilitate lecturing. Students are taught various applications along with basic programming.</p>",
+                "uploadDateTime": "",
+                "eventId": 3
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "eventName": "Science Laboratory",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 4,
+                "url": "/assets/images/schamn/Classroom-activities.jpg",
+                "isMain": true,
+                "publicId": "",
+                "title": "Science Laboratory",
+                "description": "<p>KBL ENGLISH HIGH SCHOOL has the latest science lab with all the necessary scientific equipment, chemicals and materials to make science interesting and effective for students and to encourage them to make significant contributions in the field of physics, biology, chemistry, and other streams of science later in life.<br><br>Science is different from any other subject. In order to understand its concepts, one has to look beyond the books and conventional classroom teaching. Effective teaching and learning of science involves seeing, handling, and manipulating real objects and materials. We understand that the knowledge children attain in classrooms would be ineffective unless they actually observe the process and understand the relationship between action and reaction.</p>",
+                "uploadDateTime": "",
+                "eventId": 4
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "eventName": "Library",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 5,
+                "url": "/assets/images/schamn/sch3.jpeg",
+                "isMain": true,
+                "publicId": "",
+                "title": "Library",
+                "description": "<p>KBL ENGLISH HIGH SCHOOL library is a place in the school where vast collections of academic books are kept along with fiction and non-fiction books and novels as well. These books are made available to the students to increase their knowledge and understanding of various subjects.<br><br>The Library is a storehouse of knowledge. In a library, students can find books on various subjects such as history, geography, environment, political science, literature, etc. A school library exhibits positive impact on the academic achievement of the student. Students can perform better during examination by reading various books.</p>",
+                "uploadDateTime": "",
+                "eventId": 5
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "eventName": "Activity Room for Small Children",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 6,
+                "url": "/assets/images/schamn/sch1.jpeg",
+                "isMain": true,
+                "publicId": "",
+                "title": "Activity Room for Small Children",
+                "description": "<p>To make learning a successful journey, KBL ENGLISH HIGH SCHOOLL provides all the necessary facilities, which are needed for your child’s educational development.<br><br>The activity class in KBL ENGLISH HIGH SCHOOL is carefully designed for children to work on their art, craft, music, dance, and other indoor activities. Setting the right kind of environment inside the activity room can unleash the child’s creative energy. The activity room is adorned with the work of the children, which is a way to display their creativity through artwork and crafts.</p>",
+                "uploadDateTime": "",
+                "eventId": 6
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "eventName": "CCTV Surveillance",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 7,
+                "url": "/assets/images/schamn/Classroom-activities.jpg",
+                "isMain": true,
+                "publicId": "",
+                "title": "CCTV Surveillance",
+                "description": "<p>CCTV surveillance cameras are installed in the school building, premises and outdoor areas for the safety and security of students.</p>",
+                "uploadDateTime": "",
+                "eventId": 7
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "eventName": "School Transport",
+        "eventMainPhotoUrl": null,
+        "photos": [
+            {
+                "id": 8,
+                "url": "/assets/images/schamn/sch2.jpeg",
+                "isMain": true,
+                "publicId": "",
+                "title": "School Transport",
+                "description": "<p>KBL ENGLISH HIGH SCHOOL has a contract based facility for the pick- up and drop service of students from their home to the School and vice-versa. Each Bus always has a conductor and a care-taker for the safe travel of students.</p>",
+                "uploadDateTime": "",
+                "eventId": 8
+            }
+        ]
+    }
+]

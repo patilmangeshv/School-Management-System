@@ -1,0 +1,95 @@
+<div class="container">
+    <!-- <h2 class="text-center text-primary">Photo management</h2> -->
+    <div class="tab-panel" *ngIf="!events">
+        <h3>Loading...</h3>
+    </div>
+
+    <div class="tab-panel" *ngIf="events">
+        <tabset class="member-tabset">
+            <tab *ngFor="let event of events" [heading]="event.eventName" (selectTab)="tabSelect($event)">
+                <carousel (activeSlideChange)="slideChanged($event)" [(activeSlide)]="activeSlideIndex"
+                    [isAnimated]="true" [singleSlideOffset]="true" [interval]="0" [noWrap]="true">
+                    <slide *ngFor="let photoEvent of event.photos">
+                        <img [src]="photoEvent.url" [alt]="photoEvent.title" style="display: block; width: 100%;">
+                        <div class="carousel-caption">
+                            <h3>{{photoEvent.title}}</h3>
+                            <p>{{photoEvent.description}}</p>
+                        </div>
+                    </slide>
+                </carousel>
+            </tab>
+        </tabset>
+
+        <form [formGroup]="photoEventForm" (ngSubmit)="saveChanges()" autocomplete="off">
+            <ng-container *ngIf="selectedPhotoEvent!=null">
+                <div class="row mt-2">
+                    <app-text-input [formControl]="$any(photoEventForm.controls['title'])" [label]="'Title'"
+                        [maxlength]="50"></app-text-input>
+                    <app-text-input [formControl]="$any(photoEventForm.controls['description'])" [label]="'Description'"
+                        [maxlength]="1000"></app-text-input>
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-control form-check-input" type="checkbox" id="isMain"
+                                [formControl]="$any(photoEventForm.controls['isMain'])">
+                            <label class="form-check-label" for="isMain">Main photo</label>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="selectedPhotoEvent==null">
+                <h2 class="text-danger text-center mb-4">Photos not added. Please add some photos!</h2>
+            </ng-container>
+
+            <div class="row mt-2">
+                <div class="col-2">
+                    <button type="submit" [disabled]="!photoEventForm.dirty || !photoEventForm.valid"
+                        class="btn btn-primary btn-block">Save</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-block" [disabled]="!photoEventForm.dirty"
+                        (click)="resetChanges()">Discard</button>
+                </div>
+                <div class="col-4">
+                </div>
+
+                <div class="col-2 justify-content-md-end">
+                    <button class="btn btn-success btn-block" [disabled]="photoEventForm.dirty"
+                        (click)="addPhotoEvents()">Add photos</button>
+                </div>
+                <div class="col-2 justify-content-md-end">
+                    <button class="btn btn-danger btn-block"
+                        [disabled]="photoEventForm.dirty || selectedPhotoEvent==null"
+                        (click)="deletePhotoEvent()">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--             
+            <tab heading="User Management" *appHasRole="['Admin']">
+                <div class="container">
+                    <app-user-management></app-user-management>
+                </div>
+            </tab>
+            <tab heading="Photo Management" *appHasRole="['Admin', 'Moderator']">
+                <div class="container">
+                    <app-photo-management></app-photo-management>
+                </div>
+            </tab> -->
+    <!-- <div class="row">
+        <div class="col-12 hero-slide owl-carousel site-blocks-cover">
+            <carousel [isAnimated]="true">
+                <div *ngFor="let event of (eventService.events$ | async)">
+                    <slide *ngFor="let photoEvent of event.photos">
+                        <img [src]="photoEvent.url" alt="Image file">
+                        <div class="carousel-caption">
+                            <h3>{{photoEvent.title}}</h3>
+                            <p>{{photoEvent.description}}</p>
+                        </div>
+                    </slide>
+                </div>
+            </carousel>
+        </div>
+    </div> -->
+</div>
