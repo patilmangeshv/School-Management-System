@@ -36,7 +36,7 @@ In the client directory, run: ng build --prod (This will generate optimized prod
 You may need additional configuration for production deployment depending on your chosen hosting solution. Refer to the ASP.NET Core documentation for details.
 
 ## Folder Structure
-
+```
 ├── client (Angular application)
 │   ├── ... (Angular application files)
 ├── API (ASP.NET Core project)
@@ -45,3 +45,4 @@ You may need additional configuration for production deployment depending on you
 │   ├── Program.cs (Application configuration)
 │   ├── ... (Other ASP.NET Core project files)
 ├── README.md (This file)
+```
